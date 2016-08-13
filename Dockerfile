@@ -15,4 +15,10 @@ RUN chown -R app:app $HOME/*
 
 USER app
 WORKDIR $HOME/chat
+
+# Dockerはビルド時の各レイヤをキャッシュしてくれるので、
+# package.json や npm-shrinkwrap.json に変更がない限り
+# この RUN のレイヤはキャッシュが使われて一瞬でビルドが終わる！
+# 上記いずれかのファイルに変更がある場合、その COPY 以降は
+# キャッシュを使わずに新しいレイヤを作るようになる。
 RUN npm install
