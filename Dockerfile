@@ -8,5 +8,11 @@ RUN \
 
 ENV HOME=/home/app
 
+COPY package.json npm-shrinkwrap.json $HOME/chat/
+
+# https://github.com/docker/docker/issues/6119
+RUN chown -R app:app $HOME/*
+
 USER app
 WORKDIR $HOME/chat
+RUN npm install

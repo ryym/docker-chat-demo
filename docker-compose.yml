@@ -6,3 +6,14 @@ services:
     volumes:
       - .:/home/app/chat
 
+      # http://qiita.com/lciel/items/e21a4ede3bac7fb3ec5a
+      # 上で`chat`ディレクトリにホストのカレントディレクトリを
+      # マウントしているため、ビルド時に作成された`node_modules`が隠れてしまう。
+      # なのでこうしてあらためて`node_modules`のパスをボリュームとして指定する
+      # 事で、そのディレクトリだけはイメージが持っているものを使うようにできる。
+      # こうすると、仮にホストのカレントディレクトリに`node_moudles`がいても
+      # そちらが隠れる形になる。これにより、dependenciesはイメージ内に閉じ込めつつ、
+      # ソースファイルはホストにあるので開発しやすい状態にできる。
+      # ちなみに`node_modules`の実体は、ホストのどこかDockerによって隔離された
+      # とこにあるらしい。
+      - /home/app/chat/node_modules
