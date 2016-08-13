@@ -2,6 +2,12 @@ version: '2'
 services:
   chat:
     build: .
+
+    # Override CMD in Dockerfile
+    command: node_modules/.bin/nodemon index.js
+
+    environment:
+      NODE_ENV: development
     ports:
       - '3000:3000'
     volumes:
