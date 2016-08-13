@@ -22,3 +22,5 @@ WORKDIR $HOME/chat
 # 上記いずれかのファイルに変更がある場合、その COPY 以降は
 # キャッシュを使わずに新しいレイヤを作るようになる。
 RUN npm install
+
+CMD ["node", "index.js"]

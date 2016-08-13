@@ -2,7 +2,8 @@ version: '2'
 services:
   chat:
     build: .
-    command: echo 'ready'
+    ports:
+      - '3000:3000'
     volumes:
       - .:/home/app/chat
 
