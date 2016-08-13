@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "chat",
+  "version": "0.0.0",
+  "description": "Docker and Node example",
+  "url": "http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

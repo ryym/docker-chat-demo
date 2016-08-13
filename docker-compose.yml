@@ -1,0 +1,8 @@
+version: '2'
+services:
+  chat:
+    build: .
+    command: echo 'ready'
+    volumes:
+      - .:/home/app/chat
+
